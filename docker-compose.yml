@@ -1,0 +1,7 @@
+services:
+  yuri_bot:
+    image: yuri-yuri:latest
+    volumes:
+      - /run/desktop/mnt/host/c/Yuri:/app:rw
+    ports:
+      - "3000:3000"
