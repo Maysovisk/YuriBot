@@ -3,7 +3,12 @@ const qrCode = require('qrcode-terminal');
 const config = require('./config.json');
 
 const client = new Client({
-    authStrategy: new LocalAuth()
+    authStrategy: new LocalAuth(),
+    puppeteer: {
+        executablePath: '/usr/bin/google-chrome',
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    }
 });
 
 client.on('qr', (qr) => {
@@ -16,7 +21,6 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    
     if (!msg.body.startsWith(config.prefix)) return;
 
     const args = msg.body

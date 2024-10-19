@@ -1,7 +1,17 @@
 {
+  "name": "yuri-bot",
+  "version": "1.0.0",
+  "description": "Um bot do WhatsApp usando whatsapp-web.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js --dev"
+  },
   "dependencies": {
     "axios": "^1.7.7",
     "fs": "^0.0.1-security",
+    "puppeteer": "^23.6.0",
+    "puppeteer-core": "^23.6.0",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.26.0"
   }
