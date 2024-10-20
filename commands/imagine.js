@@ -5,7 +5,7 @@ module.exports.run = async (client, msg, args) => {
     msg.reply("Processando sua solicitação..\nIsso pode demorar um pouco. 😅");
 
     try {
-        const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${process.env.ACCOUNT_ID}/ai/run/@cf/lykon/dreamshaper-8-lcm`, {
+        const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${process.env.ACCOUNT_ID}/ai/run/${process.env.MODEL_IMAGE}`, {
             method: "POST",
             body: JSON.stringify({
                 "prompt": msg.body
