@@ -1,4 +1,6 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
+const { startEventSubServer } = require('./services/twitch/twitchStream');
+const { setClient } = require('./whatsappClient');
 const qrCode = require('qrcode-terminal');
 const config = require('./config.json');
 
@@ -16,7 +18,9 @@ client.on('qr', (qr) => {
     qrCode.generate(qr, { small: true });
 });
 
-client.on('ready', () => {
+client.on('ready', async () => {
+    setClient(client);
+    await startEventSubServer();
     console.log('Client is ready!');
 });
 
